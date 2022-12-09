@@ -1,9 +1,12 @@
 {
   "name": "bc13_w11d5_hackathon-back-end-matt-and-rhona",
   "version": "1.0.0",
+  "type": "module",
   "description": "Your challenge is to ideate, plan, and build a full stack app that includes the requirements below. You can use this repository for your front end. For your back end, one person in your team can create another repository for the back end and add your pair/team as contributors. (Pop a link to your team's back end repository in this readme.)",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/www.js",
+    "dev": "nodemon -r dotenv/config server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
