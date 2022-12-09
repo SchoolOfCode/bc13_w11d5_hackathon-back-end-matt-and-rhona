@@ -2,20 +2,20 @@ import { pool } from "../db/index.js";
 
 export async function getRatingsByUser(id) {
   const data = await pool.query(
-    `SELECT * FROM film_ratings
-     WHERE user_id = $1;`, [id]);
+    `SELECT * FROM ratings
+     WHERE profile_id = $1;`, [id]);
   return data.rows;
 }
 
 export async function postRating(ratingItem) {
   const data = await pool.query(
-    `INSERT INTO film_ratings (
+    `INSERT INTO ratings (
       film_id,
-      film_title,
+      title,
       rating,
-      user_id
+      profile_id
     ) VALUES ($1,$2,$3,$4) RETURNING *;`,
-    [ratingItem.film_id, ratingItem.film_title, ratingItem.rating, ratingItem.rating, ratingItem.user_id]
+    [ratingItem.film_id, ratingItem.title, ratingItem.rating, ratingItem.profile_id]
   );
   return data.rows[0];
 }
